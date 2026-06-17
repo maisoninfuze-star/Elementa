@@ -1,0 +1,40 @@
+/* Design tokens extracted from https://www.hotel-wellington.com/en/
+   Manual extraction (no Node runtime for npx extract-design-system).
+   Starter tokens for initialization — review before relying on them. */
+:root {
+  /* Accent — bronze-gold / champagne / taupe */
+  --hw-bronze: #786947;
+  --hw-bronze-deep: #645940;
+  --hw-bronze-darkest: #3a321f;
+  --hw-champagne: #d4cbb4;
+  --hw-taupe: #8f8876;
+
+  /* Dark surfaces — deep teal / navy / slate */
+  --hw-teal-deep: #07272d;
+  --hw-navy: #0d2f44;
+  --hw-slate: #213847;
+  --hw-blue: #003a5d;
+
+  /* Neutrals */
+  --hw-white: #ffffff;
+  --hw-parchment: #edecea;
+  --hw-parchment-2: #e5e4e1;
+  --hw-sand: #d4cbb4;
+
+  /* Type */
+  --hw-font-display: 'Cormorant Garamond', serif;
+  --hw-font-body: 'Jost', sans-serif;
+  --hw-font-label: 'Montserrat', sans-serif;
+  --hw-font-script: 'Pinyon Script', cursive;
+
+  /* Tracking */
+  --hw-ls-label-wide: 0.15em;
+  --hw-ls-label: 0.12em;
+  --hw-ls-label-tight: 0.08em;
+  --hw-ls-body: 0.02em;
+
+  /* Motion */
+  --hw-ease: cubic-bezier(0.4, 0, 0.22, 1);
+  --hw-dur-fast: 0.15s;
+  --hw-dur-base: 0.3s;
+}

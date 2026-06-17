@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galerie — Elementa Experiences</title>
+  <meta name="description" content="Découvrez la propriété Elementa : cabines de verre, bains nordiques et forêts du Québec." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+<div id="sprog"></div>
+
+<!-- NAV -->
+<nav id="nav" class="scrolled">
+  <a href="index.html" class="n-brand">
+    <img class="n-emblem" src="assets/logo.jpg" alt="Elementa" />
+    <span class="n-word">Elementa</span>
+  </a>
+  <ul class="n-links">
+    <li><a href="index.html#intro" data-fr="Concept" data-en="Concept">Concept</a></li>
+    <li><a href="index.html#elements-sticky" data-fr="Les Éléments" data-en="The Elements">Les Éléments</a></li>
+    <li><a href="galerie.html" data-fr="Galerie" data-en="Gallery">Galerie</a></li>
+    <li><a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a></li>
+  </ul>
+  <div class="n-right">
+    <button class="n-lang" id="langBtn">EN</button>
+    <a href="index.html#booking" class="n-book" data-fr="Réserver" data-en="Book Now">Réserver</a>
+    <button class="n-burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="mmenu">
+  <a href="index.html#intro" data-fr="Concept" data-en="Concept">Concept</a>
+  <a href="index.html#elements-sticky" data-fr="Les Éléments" data-en="The Elements">Les Éléments</a>
+  <a href="galerie.html" data-fr="Galerie" data-en="Gallery">Galerie</a>
+  <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
+  <a href="index.html#booking" class="mm-cta" data-fr="Réserver" data-en="Book Now">Réserver</a>
+  <button class="mm-lang" id="mlangBtn">English</button>
+</div>
+
+<!-- HEADER -->
+<header class="page-head">
+  <p class="crumb"><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a> — <span data-fr="Galerie" data-en="Gallery">Galerie</span></p>
+  <h1 class="page-title reveal"><span data-fr="La" data-en="The">La</span> <em data-fr="propriété" data-en="property">propriété</em></h1>
+  <p class="page-intro reveal" data-fr="Quatre cabines, une forêt, quatre éléments. Plongez dans l'univers visuel d'Elementa — de l'aube dorée aux nuits étoilées du Québec." data-en="Four cabins, one forest, four elements. Step into Elementa's visual world — from golden dawns to Québec's starlit nights.">
+    Quatre cabines, une forêt, quatre éléments. Plongez dans l'univers visuel d'Elementa — de l'aube dorée aux nuits étoilées du Québec.
+  </p>
+</header>
+
+<!-- GALLERY -->
+<section class="gallery-page">
+  <div class="gp-grid">
+    <div class="gp-item reveal"><img src="assets/cabin-golden.webp" alt="" /><div class="gp-grad"></div><span class="gp-cap" data-fr="Heure dorée" data-en="Golden hour">Heure dorée</span></div>
+    <div class="gp-item reveal"><img src="assets/el-eau.jpg" alt="" /><div class="gp-grad"></div><span class="gp-cap" data-fr="Cabine Eau" data-en="Water Cabin">Cabine Eau</span></div>
+    <div class="gp-item reveal"><img src="assets/cabin-hero.jpg" alt="" /><div class="gp-grad"></div><span class="gp-cap" data-fr="Verre suspendu" data-en="Suspended glass">Verre suspendu</span></div>
+    <div class="gp-item reveal"><img src="assets/el-feu.jpg" alt="" /><div class="gp-grad"></div><span class="gp-cap" data-fr="Cabine Feu" data-en="Fire Cabin">Cabine Feu</span></div>
+    <div class="gp-item reveal"><img src="assets/cabin-forest.png" alt="" /><div class="gp-grad"></div><span class="gp-cap" data-fr="Vue aérienne" data-en="Aerial view">Vue aérienne</span></div>
+    <div class="gp-item reveal"><img src="assets/el-air.jpg" alt="" /><div class="gp-grad"></div><span class="gp-cap" data-fr="Cabine Air" data-en="Air Cabin">Cabine Air</span></div>
+    <div class="gp-item reveal"><img src="assets/sketch-interior.jpg" alt="" /><div class="gp-grad"></div><span class="gp-cap" data-fr="Esquisse · Spa" data-en="Sketch · Spa">Esquisse · Spa</span></div>
+    <div class="gp-item reveal"><img src="assets/el-terre.jpg" alt="" /><div class="gp-grad"></div><span class="gp-cap" data-fr="Cabine Terre" data-en="Earth Cabin">Cabine Terre</span></div>
+    <div class="gp-item reveal"><img src="assets/cabin-golden.webp" alt="" /><div class="gp-grad"></div><span class="gp-cap" data-fr="Bain nordique" data-en="Nordic bath">Bain nordique</span></div>
+    <div class="gp-item reveal"><img src="assets/cabin-hero.jpg" alt="" /><div class="gp-grad"></div><span class="gp-cap" data-fr="Intérieur" data-en="Interior">Intérieur</span></div>
+    <div class="gp-item reveal"><img src="assets/cabin-forest.png" alt="" /><div class="gp-grad"></div><span class="gp-cap" data-fr="Forêt québécoise" data-en="Québec forest">Forêt québécoise</span></div>
+    <div class="gp-item reveal"><img src="assets/el-eau.jpg" alt="" /><div class="gp-grad"></div><span class="gp-cap" data-fr="Glace & eau" data-en="Ice & water">Glace &amp; eau</span></div>
+  </div>
+</section>
+
+<!-- CTA strip -->
+<section id="booking" style="background:var(--surf)">
+  <div class="bk-inner">
+    <h2 class="bk-title reveal" data-fr="Prêt à vivre l'expérience&nbsp;?" data-en="Ready for the experience?">Prêt à vivre l'expérience&nbsp;?</h2>
+    <p class="bk-sub reveal" data-fr="Réservez l'une de nos quatre cabines et créez vos propres souvenirs." data-en="Book one of our four cabins and create your own memories.">Réservez l'une de nos quatre cabines et créez vos propres souvenirs.</p>
+    <a href="index.html#booking" class="h-cta reveal" style="margin-top:8px" data-fr="Pré-Réserver" data-en="Pre-Book">Pré-Réserver</a>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lb-close" aria-label="Fermer">✕</button>
+  <button class="lb-nav lb-prev" aria-label="Précédent">‹</button>
+  <img src="" alt="" />
+  <button class="lb-nav lb-next" aria-label="Suivant">›</button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div>
+      <div class="ft-brand"><img class="ft-emblem" src="assets/logo.jpg" alt="" /><div class="ft-logo">Elementa</div></div>
+      <p class="ft-tag" data-fr="L'essence de la nature, réinventée." data-en="The essence of nature, reinvented.">L'essence de la nature, réinventée.</p>
+    </div>
+    <div class="ft-cols">
+      <div class="fc"><h4 data-fr="Navigation" data-en="Navigation">Navigation</h4><ul>
+        <li><a href="index.html#intro" data-fr="Concept" data-en="Concept">Concept</a></li>
+        <li><a href="index.html#elements-sticky" data-fr="Les Éléments" data-en="The Elements">Les Éléments</a></li>
+        <li><a href="index.html#booking" data-fr="Réservation" data-en="Booking">Réservation</a></li>
+      </ul></div>
+      <div class="fc"><h4 data-fr="Découvrir" data-en="Discover">Découvrir</h4><ul>
+        <li><a href="galerie.html" data-fr="Galerie" data-en="Gallery">Galerie</a></li>
+        <li><a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a></li>
+      </ul></div>
+      <div class="fc"><h4 data-fr="Légal" data-en="Legal">Légal</h4><ul>
+        <li><a href="confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a></li>
+        <li><a href="conditions.html" data-fr="Conditions" data-en="Terms">Conditions</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <p class="ft-copy">© 2026 Elementa Experiences. <span data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</span></p>
+    <div class="ft-soc"><a href="#">Instagram</a><a href="#">TikTok</a></div>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div id="cookie">
+  <h4 data-fr="Votre vie privée" data-en="Your privacy">Votre vie privée</h4>
+  <p data-fr="Nous utilisons des témoins (cookies) uniquement avec votre consentement, conformément à la Loi 25 du Québec. Consultez notre <a href='confidentialite.html'>politique de confidentialité</a>."
+     data-en="We use cookies only with your consent, in accordance with Québec's Law 25. See our <a href='confidentialite.html'>privacy policy</a>.">
+     Nous utilisons des témoins (cookies) uniquement avec votre consentement, conformément à la Loi 25 du Québec. Consultez notre <a href="confidentialite.html">politique de confidentialité</a>.
+  </p>
+  <div class="ck-row">
+    <button class="ck-accept" data-fr="Tout accepter" data-en="Accept all">Tout accepter</button>
+    <button class="ck-refuse" data-fr="Refuser" data-en="Refuse">Refuser</button>
+  </div>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

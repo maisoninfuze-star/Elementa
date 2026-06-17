@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conditions générales — Elementa Experiences</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+<div id="sprog"></div>
+
+<nav id="nav" class="scrolled">
+  <a href="index.html" class="n-brand">
+    <img class="n-emblem" src="assets/logo.jpg" alt="Elementa" />
+    <span class="n-word">Elementa</span>
+  </a>
+  <ul class="n-links">
+    <li><a href="index.html#intro" data-fr="Concept" data-en="Concept">Concept</a></li>
+    <li><a href="index.html#elements-sticky" data-fr="Les Éléments" data-en="The Elements">Les Éléments</a></li>
+    <li><a href="galerie.html" data-fr="Galerie" data-en="Gallery">Galerie</a></li>
+    <li><a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a></li>
+  </ul>
+  <div class="n-right">
+    <button class="n-lang" id="langBtn">EN</button>
+    <a href="index.html#booking" class="n-book" data-fr="Réserver" data-en="Book Now">Réserver</a>
+    <button class="n-burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="mmenu">
+  <a href="index.html#intro" data-fr="Concept" data-en="Concept">Concept</a>
+  <a href="index.html#elements-sticky" data-fr="Les Éléments" data-en="The Elements">Les Éléments</a>
+  <a href="galerie.html" data-fr="Galerie" data-en="Gallery">Galerie</a>
+  <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
+  <a href="index.html#booking" class="mm-cta" data-fr="Réserver" data-en="Book Now">Réserver</a>
+  <button class="mm-lang" id="mlangBtn">English</button>
+</div>
+
+<header class="page-head">
+  <p class="crumb"><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a> — <span data-fr="Conditions" data-en="Terms">Conditions</span></p>
+  <h1 class="page-title"><span data-fr="Conditions" data-en="Terms &amp;">Conditions</span> <em data-fr="générales" data-en="conditions">générales</em></h1>
+</header>
+
+<div class="legal-wrap">
+  <p class="legal-meta" data-fr="En vigueur le 5 juin 2026. Les présentes conditions régissent l'utilisation du site et les réservations effectuées auprès d'Elementa Experiences inc." data-en="Effective June 5, 2026. These terms govern the use of the website and bookings made with Elementa Experiences inc.">En vigueur le 5 juin 2026. Les présentes conditions régissent l'utilisation du site et les réservations effectuées auprès d'Elementa Experiences inc.</p>
+
+  <section class="legal-section" id="t1">
+    <h2><span class="num">01</span><span data-fr="Réservations et paiement" data-en="Bookings and payment">Réservations et paiement</span></h2>
+    <p data-fr="Toute réservation est confirmée à réception d'un dépôt de 30 % du montant total. Le solde est dû 14 jours avant l'arrivée. Les tarifs sont en dollars canadiens (CAD) et n'incluent pas les taxes applicables (TPS, TVQ et taxe sur l'hébergement)." data-en="Every booking is confirmed upon receipt of a 30% deposit of the total amount. The balance is due 14 days before arrival. Rates are in Canadian dollars (CAD) and do not include applicable taxes (GST, QST and lodging tax).">Toute réservation est confirmée à réception d'un dépôt de 30 % du montant total. Le solde est dû 14 jours avant l'arrivée. Les tarifs sont en dollars canadiens (CAD) et n'incluent pas les taxes applicables (TPS, TVQ et taxe sur l'hébergement).</p>
+  </section>
+
+  <section class="legal-section" id="t2">
+    <h2><span class="num">02</span><span data-fr="Annulation et remboursement" data-en="Cancellation and refund">Annulation et remboursement</span></h2>
+    <p data-fr="L'annulation est gratuite jusqu'à 30 jours avant l'arrivée. Entre 30 et 14 jours, le dépôt est conservé. À moins de 14 jours, le séjour est facturé en totalité. Conformément à la Loi sur la protection du consommateur du Québec, certaines protections peuvent s'appliquer." data-en="Cancellation is free up to 30 days before arrival. Between 30 and 14 days, the deposit is retained. Within 14 days, the full stay is charged. In accordance with Québec's Consumer Protection Act, certain protections may apply.">L'annulation est gratuite jusqu'à 30 jours avant l'arrivée. Entre 30 et 14 jours, le dépôt est conservé. À moins de 14 jours, le séjour est facturé en totalité. Conformément à la Loi sur la protection du consommateur du Québec, certaines protections peuvent s'appliquer.</p>
+  </section>
+
+  <section class="legal-section" id="t3">
+    <h2><span class="num">03</span><span data-fr="Règles du séjour" data-en="Stay rules">Règles du séjour</span></h2>
+    <ul>
+      <li data-fr="Arrivée à partir de 16 h · départ avant 11 h." data-en="Check-in from 4 pm · check-out before 11 am.">Arrivée à partir de 16 h · départ avant 11 h.</li>
+      <li data-fr="Les cabines sont non-fumeur; un foyer extérieur sécurisé est prévu." data-en="Cabins are non-smoking; a secured outdoor fireplace is provided.">Les cabines sont non-fumeur; un foyer extérieur sécurisé est prévu.</li>
+      <li data-fr="Les animaux de compagnie sont admis sur demande, selon la cabine." data-en="Pets are welcome on request, depending on the cabin.">Les animaux de compagnie sont admis sur demande, selon la cabine.</li>
+      <li data-fr="Le client est responsable de tout dommage causé durant le séjour." data-en="The guest is responsible for any damage caused during the stay.">Le client est responsable de tout dommage causé durant le séjour.</li>
+    </ul>
+  </section>
+
+  <section class="legal-section" id="t4">
+    <h2><span class="num">04</span><span data-fr="Responsabilité" data-en="Liability">Responsabilité</span></h2>
+    <p data-fr="Le domaine se situe en milieu naturel; le client reconnaît les risques inhérents à un environnement forestier. Elementa ne saurait être tenue responsable des événements indépendants de sa volonté (force majeure, conditions météorologiques)." data-en="The estate is located in a natural setting; the guest acknowledges the inherent risks of a forest environment. Elementa cannot be held liable for events beyond its control (force majeure, weather conditions).">Le domaine se situe en milieu naturel; le client reconnaît les risques inhérents à un environnement forestier. Elementa ne saurait être tenue responsable des événements indépendants de sa volonté (force majeure, conditions météorologiques).</p>
+  </section>
+
+  <section class="legal-section" id="t5">
+    <h2><span class="num">05</span><span data-fr="Droit applicable" data-en="Governing law">Droit applicable</span></h2>
+    <p data-fr="Les présentes conditions sont régies par les lois en vigueur dans la province de Québec. Tout litige relève de la compétence exclusive des tribunaux du district judiciaire de Charlevoix. Pour toute question relative à vos renseignements personnels, consultez notre <a href='confidentialite.html'>politique de confidentialité</a>." data-en="These terms are governed by the laws in force in the province of Québec. Any dispute falls under the exclusive jurisdiction of the courts of the judicial district of Charlevoix. For any question regarding your personal information, see our <a href='confidentialite.html'>privacy policy</a>.">Les présentes conditions sont régies par les lois en vigueur dans la province de Québec. Tout litige relève de la compétence exclusive des tribunaux du district judiciaire de Charlevoix. Pour toute question relative à vos renseignements personnels, consultez notre <a href="confidentialite.html">politique de confidentialité</a>.</p>
+    <p style="margin-top:24px"><a class="btn-ghost" href="index.html" data-fr="Retour à l'accueil" data-en="Back to home">Retour à l'accueil</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="ft">
+    <div>
+      <div class="ft-brand"><img class="ft-emblem" src="assets/logo.jpg" alt="" /><div class="ft-logo">Elementa</div></div>
+      <p class="ft-tag" data-fr="L'essence de la nature, réinventée." data-en="The essence of nature, reinvented.">L'essence de la nature, réinventée.</p>
+    </div>
+    <div class="ft-cols">
+      <div class="fc"><h4 data-fr="Navigation" data-en="Navigation">Navigation</h4><ul>
+        <li><a href="index.html#intro" data-fr="Concept" data-en="Concept">Concept</a></li>
+        <li><a href="galerie.html" data-fr="Galerie" data-en="Gallery">Galerie</a></li>
+        <li><a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a></li>
+      </ul></div>
+      <div class="fc"><h4 data-fr="Légal" data-en="Legal">Légal</h4><ul>
+        <li><a href="confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a></li>
+        <li><a href="conditions.html" data-fr="Conditions" data-en="Terms">Conditions</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <p class="ft-copy">© 2026 Elementa Experiences. <span data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</span></p>
+    <div class="ft-soc"><a href="#">Instagram</a><a href="#">TikTok</a></div>
+  </div>
+</footer>
+
+<div id="cookie">
+  <h4 data-fr="Votre vie privée" data-en="Your privacy">Votre vie privée</h4>
+  <p data-fr="Nous utilisons des témoins (cookies) uniquement avec votre consentement, conformément à la Loi 25 du Québec."
+     data-en="We use cookies only with your consent, in accordance with Québec's Law 25.">
+     Nous utilisons des témoins (cookies) uniquement avec votre consentement, conformément à la Loi 25 du Québec.
+  </p>
+  <div class="ck-row">
+    <button class="ck-accept" data-fr="Tout accepter" data-en="Accept all">Tout accepter</button>
+    <button class="ck-refuse" data-fr="Refuser" data-en="Refuse">Refuser</button>
+  </div>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
