@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Elementa Experiences — Hébergement de prestige · Québec</title>
+<meta name="description" content="Quatre cabines d'exception au cœur des forêts du Québec. Eau, Feu, Air, Terre. Ouverture juin 2026." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    /* White & black branding — hotel-wellington.com: warm white canvas, near-black ink, restrained bronze accent */
+    --bg:#ece7dd; --panel:#f4f0e7; --line:rgba(22,20,15,.12);
+    --text:#16140f; --muted:#79735f; --gold:#786947; --gold2:#b89a5e;
+    --champagne:#d4cbb4; --ink:#14120d; --ink-soft:#1c1a14;
+    --eau:#0e2730; --feu:#2a1408; --air:#1c262c; --terre:#142010;
+    --ease:cubic-bezier(.22,1,.36,1);
+    --ease-hw:cubic-bezier(.4,0,.22,1);
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;line-height:1.6}
+  ::selection{background:var(--gold);color:#000}
+  body::after{content:'';position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:.018;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px}
+
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:300}
+  .gold{color:var(--gold2)}
+  .script{font-family:'Pinyon Script',cursive;font-style:normal}
+  .eyebrow{font-family:'Montserrat',sans-serif;font-weight:500;font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+  .lede{color:var(--muted);font-size:.92rem;letter-spacing:.02em;line-height:1.85}
+  .emblem{width:1em;height:1em;display:inline-block;fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;
+    padding:20px 44px;transition:all .45s var(--ease);border-bottom:1px solid transparent}
+  nav.scrolled{background:rgba(236,231,221,.86);backdrop-filter:blur(18px) saturate(120%);-webkit-backdrop-filter:blur(18px) saturate(120%);border-bottom-color:var(--line);padding:13px 44px}
+  /* default nav is over the dark hero video → light text; scrolled over light content → dark text */
+  .brand{display:flex;align-items:center;gap:13px;text-decoration:none;color:#fff;transition:color .4s var(--ease)}
+  nav.scrolled .brand{color:var(--text)}
+  .brand .navmark{width:40px;height:46px;display:block;background:#fff;flex:none;
+    -webkit-mask:url('assets/Logo_Elementa.png') no-repeat;mask:url('assets/Logo_Elementa.png') no-repeat;
+    -webkit-mask-size:360% auto;mask-size:360% auto;-webkit-mask-position:50% 12%;mask-position:50% 12%;
+    transition:background .4s var(--ease)}
+  nav.scrolled .brand .navmark{background:var(--text)}
+  .brand .wm{font-family:'Cormorant Garamond',serif;font-size:1.05rem;letter-spacing:.34em;text-transform:uppercase}
+  .nlinks{display:flex;gap:34px;list-style:none;align-items:center}
+  .nlinks a{font-size:.69rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;opacity:.85;text-decoration:none;position:relative;transition:opacity .3s,color .4s var(--ease)}
+  nav.scrolled .nlinks a{color:var(--text);opacity:.66}
+  .nlinks a::after{content:'';position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease)}
+  .nlinks a:hover{opacity:1}.nlinks a:hover::after{width:100%}
+  .nright{display:flex;align-items:center;gap:16px}
+  .lang{background:none;border:1px solid rgba(255,255,255,.42);color:#fff;font-family:'Montserrat',sans-serif;font-weight:500;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;padding:7px 13px;cursor:pointer;transition:.25s}
+  nav.scrolled .lang{border-color:var(--line);color:var(--gold)}
+  .lang:hover{background:#fff;color:#16140f}
+  nav.scrolled .lang:hover{background:var(--gold);color:#fff}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:'Montserrat',sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:.3s var(--ease-hw)}
+  .btn-solid{background:var(--text);color:var(--bg);border:1px solid var(--text);padding:11px 24px;font-weight:500}
+  .btn-solid:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+  /* ghost button lives over the dark hero video → light */
+  .btn-ghost{background:none;border:1px solid rgba(255,255,255,.42);color:#fff;padding:13px 30px}
+  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+  /* hero solid CTA must pop on the dark video → cream fill */
+  .hero-cta .btn-solid{background:#f6f4ef;color:#16140f;border-color:#f6f4ef}
+  .hero-cta .btn-solid:hover{background:#fff;border-color:#fff;color:#16140f}
+  /* nav reserve button: cream over the hero video, ink once scrolled onto light content */
+  .nav-book{background:#f6f4ef;color:#16140f;border-color:#f6f4ef}
+  nav.scrolled .nav-book{background:var(--text);color:var(--bg);border-color:var(--text)}
+  nav.scrolled .nav-book:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+  .btn-line{color:var(--gold2);border:none;background:none;padding:0;gap:11px}
+  .btn-line .ar{transition:transform .35s var(--ease)}.btn-line:hover .ar{transform:translateX(6px)}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+  .burger span{width:22px;height:1.5px;background:#fff;display:block;transition:background .4s var(--ease)}
+  nav.scrolled .burger span{background:var(--text)}
+
+  /* hero — cinematic scroll-scrub stage */
+  #hero{position:relative;height:200vh}
+  .hero-sticky{position:sticky;top:0;height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#080807}
+  .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 46%;background:#080807}
+  .hero-grade{position:absolute;inset:0;pointer-events:none;background:
+    linear-gradient(180deg,rgba(8,8,7,.5) 0%,rgba(8,8,7,.05) 24%,rgba(8,8,7,.12) 56%,rgba(8,8,7,.46) 90%,var(--ink) 100%),
+    radial-gradient(82% 54% at 50% 54%,rgba(8,8,7,.32),transparent 74%)}
+  .hero-in{position:relative;z-index:2;padding:0 24px;max-width:900px}
+  /* hero content sits over the dark video → force light type regardless of the light page theme */
+  .hero-sticky .hero-in,.hero-sticky .hero-title{color:#f6f4ef}
+  .hero-sticky .hero-in .eyebrow{color:#dacfb3}
+  .hero-sticky .hero-sub{color:rgba(246,244,239,.84)}
+  .hero-sticky .scarcity{color:rgba(246,244,239,.74)}
+  .hero-sticky .scrollhint span{color:rgba(246,244,239,.6)}
+  .hero-in .eyebrow{display:block;margin-bottom:26px;opacity:0;transform:translateY(14px)}
+  .hero-title{font-size:clamp(3.2rem,9vw,7.6rem);line-height:.92;margin-bottom:26px}
+  .hero-title span{display:block;opacity:0;transform:translateY(26px)}
+  .hero-title em{font-style:italic}
+  .hero-title .script{font-family:'Pinyon Script',cursive;font-style:normal;font-weight:400;font-size:1.34em;line-height:1.04;display:inline-block;padding:.02em .06em .14em;color:#e8ddc4}
+  .hero-sub{max-width:440px;margin:0 auto 18px;opacity:0;transform:translateY(14px)}
+  .scarcity{display:inline-flex;align-items:center;gap:10px;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:34px;opacity:0;transform:translateY(14px)}
+  .scarcity .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(200,169,110,.12)}
+  .hero-cta{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(14px)}
+  .scrollhint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0}
+  .scrollhint span{font-size:.54rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted)}
+  .scrollhint i{width:1px;height:34px;background:linear-gradient(var(--gold),transparent);animation:pulse 2s var(--ease) infinite}
+  @keyframes pulse{0%,100%{opacity:.3;transform:scaleY(.7)}50%{opacity:1;transform:scaleY(1)}}
+
+  /* generic section */
+  section{position:relative}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 44px}
+  /* Hotel Wellington reveal system: slideUp / fadeInScaleIn / slideLeft on the signature easing */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity 1.1s var(--ease-hw),transform 1.1s var(--ease-hw)}
+  .reveal-scale{opacity:0;transform:scale(.94);transition:opacity 1.3s var(--ease-hw),transform 1.3s var(--ease-hw)}
+  .reveal-left{opacity:0;transform:translateX(-46px);transition:opacity 1.1s var(--ease-hw),transform 1.1s var(--ease-hw)}
+  .reveal.in,.reveal-scale.in,.reveal-left.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal,.reveal-scale,.reveal-left{transition:opacity .6s ease;transform:none}}
+
+  /* manifesto */
+  #manifesto{padding:140px 0 130px;text-align:center}
+  .manifesto-q{font-size:clamp(1.7rem,3.4vw,2.9rem);line-height:1.45;max-width:880px;margin:0 auto;font-style:italic}
+  .manifesto-q b{font-weight:400;font-style:normal;color:var(--gold2)}
+  .rule{width:46px;height:1px;background:var(--gold);margin:0 auto 36px}
+  .manifesto-tag{margin-top:34px}
+
+  /* proof */
+  #proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .proof-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:54px 24px;text-align:center;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+  .stat .num{font-family:'Cormorant Garamond',serif;font-size:3.4rem;font-weight:300;color:var(--gold2);line-height:1}
+  .stat .lab{font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+
+  /* elements rooms */
+  .room{min-height:94vh;display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+  .room.flip .room-media{order:2}
+  .room-media{position:relative;overflow:hidden;min-height:60vh}
+  .room-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .room-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:
+    linear-gradient(180deg,rgba(6,6,5,.12) 0%,rgba(6,6,5,0) 30%,rgba(6,6,5,0) 66%,rgba(6,6,5,.26) 100%)}
+  .room:not(.flip) .room-media::after,.room.flip .room-media::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none}
+  .room:not(.flip) .room-media::after{background:linear-gradient(90deg,transparent 78%,var(--ink) 100%)}
+  .room.flip .room-media::after{background:linear-gradient(270deg,transparent 78%,var(--ink) 100%)}
+  .room-media .emblem-bg{position:absolute;z-index:3;top:50%;left:50%;transform:translate(-50%,-50%);width:42%;height:auto;color:rgba(231,225,214,.9);opacity:.26;stroke-width:2.5;mix-blend-mode:overlay}
+  .room-media .mlabel{position:absolute;z-index:3;bottom:26px;left:30px;font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(231,225,214,.72)}
+  .m-eau{background:radial-gradient(120% 90% at 30% 20%,#1d4358,transparent 60%),linear-gradient(160deg,#0b1a23,#16384a 60%,#0a141a)}
+  .m-feu{background:radial-gradient(120% 90% at 70% 30%,#5a2a10,transparent 60%),linear-gradient(160deg,#1a0c05,#3a1c0d 60%,#140a05)}
+  .m-air{background:radial-gradient(120% 90% at 50% 15%,#3a4a57,transparent 60%),linear-gradient(160deg,#11181d,#2a3640 60%,#0e1216)}
+  .m-terre{background:radial-gradient(120% 90% at 35% 25%,#27451a,transparent 60%),linear-gradient(160deg,#0c1409,#1c2e16 60%,#0a1107)}
+  .room-body{display:flex;flex-direction:column;justify-content:center;padding:80px 70px;background:var(--ink);color:#e9e3d8}
+  .room.flip .room-body{order:1}
+  .room-body .lede{color:rgba(233,227,216,.62)}
+  .room-idx{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold2);letter-spacing:.1em;margin-bottom:18px}
+  .room-name{font-size:clamp(3rem,5.5vw,5rem);line-height:1;margin-bottom:8px}
+  .room-el{font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(233,227,216,.5);margin-bottom:26px}
+  .room-desc{max-width:420px;margin-bottom:30px}
+  .room-meta{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+
+  /* ── dark editorial tiles — alternate against the parchment to break up the white ── */
+  .dark-tile{background:var(--ink);color:#e9e3d8}
+  .dark-tile .eyebrow{color:var(--gold2)}
+  .dark-tile .lede{color:rgba(233,227,216,.6)}
+  .dark-tile .rule{background:var(--gold2)}
+  .dark-tile .manifesto-q b{color:var(--gold2)}
+  .dark-tile .logo-mark{background:#e9e3d8}
+  .dark-tile .fcol h4,.dark-tile .fg label{color:var(--gold2)}
+  .dark-tile .fcol a,.dark-tile .fbrand p,.dark-tile .booknote,.dark-tile .fbot p,.dark-tile .fsoc a{color:rgba(233,227,216,.56)}
+  .dark-tile .fcol a:hover,.dark-tile .fsoc a:hover{color:#e9e3d8}
+  .dark-tile .form{border-color:rgba(233,227,216,.18);background:rgba(255,255,255,.03)}
+  .dark-tile .fg{border-color:rgba(233,227,216,.14)}
+  .dark-tile .fg input,.dark-tile .fg select{color:#e9e3d8}
+  .dark-tile .fg select option{background:#14120d}
+  .dark-tile .btn-solid{background:#e9e3d8;color:var(--ink);border-color:#e9e3d8}
+  .dark-tile .btn-solid:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+
+  /* experiences */
+  #xp{padding:130px 0}
+  .xp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:26px;margin-bottom:56px;flex-wrap:wrap}
+  .xp-head h2{font-size:clamp(2.2rem,4.4vw,3.6rem);line-height:1.05;margin-top:14px}
+  .xp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .xp{background:var(--bg);padding:42px 36px;transition:background .4s}
+  .xp:hover{background:var(--panel)}
+  .xp .emblem,.xp .xp-ico{width:26px;height:26px;color:var(--gold);margin-bottom:22px}
+  .xp h3{font-size:1.5rem;margin-bottom:10px}
+  .xp p{font-size:.82rem;color:var(--muted);line-height:1.7}
+
+  /* reservation */
+  #book{padding:130px 0;position:relative;overflow:hidden}
+  #book::before{content:'';position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 0%,rgba(200,169,110,.06),transparent 70%)}
+  .book-in{max-width:880px;margin:0 auto;text-align:center;position:relative;padding:0 44px}
+  .book-in h2{font-size:clamp(2.4rem,5vw,4rem);line-height:1.08;margin:16px 0 18px}
+  .form{display:flex;border:1px solid var(--line);max-width:740px;margin:44px auto 18px;background:rgba(10,10,9,.5)}
+  .fg{flex:1;padding:18px 22px;border-right:1px solid var(--line);text-align:left}
+  .fg:last-of-type{border-right:none}
+  .fg label{display:block;font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .fg input,.fg select{background:none;border:none;outline:none;color:var(--text);font-family:'Jost',sans-serif;font-size:.82rem;width:100%;-webkit-appearance:none;cursor:pointer}
+  .fg select option{background:#111}
+  .form .btn-solid{padding:0 30px}
+  .booknote{font-size:.64rem;color:var(--muted);letter-spacing:.04em}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:70px 0 40px}
+  .ftop{display:flex;justify-content:space-between;gap:50px;flex-wrap:wrap;margin-bottom:54px}
+  .fbrand .brand{margin-bottom:14px}
+  .fbrand p{font-size:.74rem;color:var(--muted);max-width:240px}
+  .fcols{display:flex;gap:56px;flex-wrap:wrap}
+  .fcol h4{font-size:.56rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  .fcol ul{list-style:none}.fcol li{margin-bottom:11px}
+  .fcol a{font-size:.76rem;color:var(--muted);text-decoration:none;transition:color .3s}.fcol a:hover{color:var(--text)}
+  .fbot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding-top:30px;border-top:1px solid rgba(255,255,255,.05)}
+  .fbot p{font-size:.62rem;color:var(--muted)}
+  .fsoc{display:flex;gap:18px}.fsoc a{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none}.fsoc a:hover{color:var(--gold)}
+
+  /* sticky reserve */
+  .sticky-book{position:fixed;right:26px;bottom:26px;z-index:400;opacity:0;transform:translateY(20px) scale(.95);transition:.5s var(--ease);pointer-events:none}
+  .sticky-book.show{opacity:1;transform:none;pointer-events:auto}
+
+  /* loader */
+  #loader{position:fixed;inset:0;z-index:8000;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;transition:opacity .6s var(--ease)}
+  .logo-mark{display:block;background:var(--text);
+    -webkit-mask:url('assets/Logo_Elementa.png') center/contain no-repeat;mask:url('assets/Logo_Elementa.png') center/contain no-repeat}
+  #loader .logo-load{width:min(72vw,300px);aspect-ratio:1307/1000;animation:float 2.4s var(--ease) infinite}
+  @keyframes float{0%,100%{transform:translateY(0);opacity:.85}50%{transform:translateY(-7px);opacity:1}}
+  .lbar{width:150px;height:1px;background:rgba(200,169,110,.16);overflow:hidden}
+  .lbar i{display:block;height:100%;width:100%;background:var(--gold);transform:translateX(-100%);animation:load 1.3s var(--ease) forwards}
+  @keyframes load{to{transform:translateX(0)}}
+
+  @media(max-width:980px){
+    nav{padding:16px 22px}.nlinks,.nav-book{display:none}.burger{display:flex}
+    .wrap{padding:0 22px}
+    .proof-grid{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
+    .room{grid-template-columns:1fr}.room.flip .room-media{order:0}.room.flip .room-body{order:1}
+    .room-media{min-height:46vh}.room-body{padding:54px 30px}
+    .xp-grid{grid-template-columns:1fr}
+    .form{flex-direction:column}.fg{border-right:none;border-bottom:1px solid var(--line)}.form .btn-solid{padding:18px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ░░ SVG emblem library ░░ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- master mark -->
+    <symbol id="mark" viewBox="0 0 100 120">
+      <ellipse cx="50" cy="60" rx="33" ry="44"/>
+      <path d="M50 38 L61 54 L50 66 L39 54 Z"/>
+      <path d="M50 66 L50 80"/>
+      <path d="M50 34 L50 25 M44 35 L40 27 M56 35 L60 27"/>
+      <path d="M35 86 q 7.5 -6 15 0 t 15 0"/>
+      <path d="M35 93 q 7.5 -6 15 0 t 15 0"/>
+    </symbol>
+    <!-- eau -->
+    <symbol id="eau" viewBox="0 0 100 100">
+      <path d="M16 40 q 9 -9 18 0 t 18 0 t 18 0"/>
+      <path d="M16 52 q 9 -9 18 0 t 18 0 t 18 0"/>
+      <path d="M16 64 q 9 -9 18 0 t 18 0 t 18 0"/>
+      <path d="M16 76 q 9 -9 18 0 t 18 0 t 18 0"/>
+    </symbol>
+    <!-- feu -->
+    <symbol id="feu" viewBox="0 0 100 100">
+      <path d="M44 76 C 28 60 34 38 50 18 C 66 38 72 60 56 76"/>
+      <path d="M42 76 q 8 6 16 0"/>
+      <path d="M50 70 C 43 62 45 50 50 42 C 55 50 57 62 50 70"/>
+    </symbol>
+    <!-- air -->
+    <symbol id="air" viewBox="0 0 100 100">
+      <path d="M22 64 H78"/>
+      <path d="M50 50 L50 28"/>
+      <path d="M54 51 L60 32"/><path d="M46 51 L40 32"/>
+      <path d="M57 53 L68 38"/><path d="M43 53 L32 38"/>
+      <path d="M60 55 L72 46"/><path d="M40 55 L28 46"/>
+      <path d="M61 58 L73 55"/><path d="M39 58 L27 55"/>
+    </symbol>
+    <!-- terre -->
+    <symbol id="terre" viewBox="0 0 100 100">
+      <path d="M50 16 C 64 28 68 40 68 47 C 68 57 58 70 50 82 C 42 70 32 57 32 47 C 32 40 36 28 50 16 Z"/>
+      <path d="M50 24 L50 78"/>
+      <path d="M50 44 L61 37"/><path d="M50 44 L39 37"/>
+      <path d="M50 56 L63 49"/><path d="M50 56 L37 49"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- loader -->
+<div id="loader"><div class="logo-mark logo-load"></div><div class="lbar"><i></i></div></div>
+
+<!-- nav -->
+<nav id="nav">
+  <a href="#hero" class="brand"><span class="navmark"></span><span class="wm">Elementa</span></a>
+  <ul class="nlinks">
+    <li><a href="#manifesto" data-fr="Le concept" data-en="The concept">Le concept</a></li>
+    <li><a href="#eau-room" data-fr="Les éléments" data-en="The elements">Les éléments</a></li>
+    <li><a href="#xp" data-fr="Expériences" data-en="Experiences">Expériences</a></li>
+    <li><a href="#book" data-fr="Réserver" data-en="Reserve">Réserver</a></li>
+  </ul>
+  <div class="nright">
+    <button class="lang" id="lang">EN</button>
+    <a href="#book" class="btn btn-solid nav-book" data-fr="Réserver" data-en="Book now">Réserver</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- hero -->
+<section id="hero">
+  <div class="hero-sticky">
+    <video id="heroVideo" class="hero-video" poster="assets/hero-poster.jpg" muted playsinline webkit-playsinline preload="auto" disablepictureinpicture aria-hidden="true">
+      <source src="assets/video.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-grade"></div>
+    <div class="hero-in">
+    <span class="eyebrow" data-fr="Hébergement de prestige · Québec" data-en="Prestige accommodation · Québec">Hébergement de prestige · Québec</span>
+    <h1 class="hero-title">
+      <span data-fr="Où la nature" data-en="Where nature">Où la nature</span>
+      <span><em class="gold script" data-fr="vous appartient" data-en="belongs to you">vous appartient</em></span>
+    </h1>
+    <p class="hero-sub lede" data-fr="Quatre cabines d'exception, façonnées par les éléments, au cœur des forêts du Québec." data-en="Four exceptional cabins, shaped by the elements, in the heart of Québec's forests.">Quatre cabines d'exception, façonnées par les éléments, au cœur des forêts du Québec.</p>
+    <div class="scarcity"><span class="dot"></span><span data-fr="Seulement 4 cabines · Ouverture juin 2026" data-en="Only 4 cabins · Opening June 2026">Seulement 4 cabines · Ouverture juin 2026</span></div>
+    <div class="hero-cta">
+      <a href="#book" class="btn btn-solid" data-fr="Pré-réserver" data-en="Pre-book">Pré-réserver</a>
+      <a href="#manifesto" class="btn btn-ghost" data-fr="Découvrir le lieu" data-en="Discover the place">Découvrir le lieu</a>
+    </div>
+  </div>
+    <div class="scrollhint"><span data-fr="Défiler" data-en="Scroll">Défiler</span><i></i></div>
+  </div>
+</section>
+
+<!-- manifesto -->
+<section id="manifesto" class="dark-tile">
+  <div class="wrap reveal">
+    <div class="rule"></div>
+    <p class="manifesto-q serif">
+      <span data-fr="La nature ne se visite pas." data-en="Nature is not visited.">La nature ne se visite pas.</span>
+      <b data-fr=" Elle se ressent, elle se vit, " data-en=" It is felt, it is lived, "> Elle se ressent, elle se vit, </b>
+      <span data-fr="elle vous transforme." data-en="it transforms you.">elle vous transforme.</span>
+    </p>
+    <p class="manifesto-tag eyebrow" data-fr="Le manifeste Elementa" data-en="The Elementa manifesto">Le manifeste Elementa</p>
+  </div>
+</section>
+
+<!-- proof -->
+<section id="proof">
+  <div class="proof-grid">
+    <div class="stat reveal"><div class="num" data-count="4">4</div><div class="lab" data-fr="Cabines uniques" data-en="Unique cabins">Cabines uniques</div></div>
+    <div class="stat reveal"><div class="num" data-count="0">0</div><div class="lab" data-fr="Voisins" data-en="Neighbours">Voisins</div></div>
+    <div class="stat reveal"><div class="num" data-count="100" data-suffix=" ha">100 ha</div><div class="lab" data-fr="De forêt privée" data-en="Of private forest">De forêt privée</div></div>
+    <div class="stat reveal"><div class="num">4.9★</div><div class="lab" data-fr="Note des premiers séjours" data-en="First-stay rating">Note des premiers séjours</div></div>
+  </div>
+</section>
+
+<!-- intro to elements -->
+<section style="padding:120px 0 30px;text-align:center">
+  <div class="wrap reveal">
+    <span class="eyebrow" data-fr="Les quatre éléments" data-en="The four elements">Les quatre éléments</span>
+    <h2 class="serif" style="font-size:clamp(2.2rem,4.6vw,3.8rem);line-height:1.05;margin-top:16px;max-width:760px;margin-inline:auto" data-fr="Quatre cabines. Quatre essences. Une seule règle&nbsp;: choisir la vôtre." data-en="Four cabins. Four essences. One rule: choose yours.">Quatre cabines. Quatre essences. Une seule règle&nbsp;: choisir la vôtre.</h2>
+  </div>
+</section>
+
+<!-- EAU -->
+<section class="room" id="eau-room">
+  <div class="room-media m-eau reveal-scale">
+    <video class="room-vid" muted loop playsinline webkit-playsinline preload="none" poster="assets/poster-eau.jpg" data-src="assets/244839_tiny.mp4"></video>
+    <div class="room-scrim"></div>
+    <svg class="emblem emblem-bg"><use href="#eau"/></svg><span class="mlabel" data-fr="Cabine Eau" data-en="Water Cabin">Cabine Eau</span>
+  </div>
+  <div class="room-body reveal-left">
+    <div class="room-idx">01 — <span data-fr="EAU" data-en="WATER">EAU</span></div>
+    <h2 class="room-name serif">Eau</h2>
+    <div class="room-el" data-fr="Fluidité · Sérénité" data-en="Fluidity · Serenity">Fluidité · Sérénité</div>
+    <p class="room-desc lede" data-fr="Suspendue au-dessus d'un lac cristallin, parois de verre et bain à débordement&nbsp;: une cabine qui efface la frontière entre l'eau et le ciel." data-en="Suspended above a crystal lake, glass walls and an infinity bath — a cabin that dissolves the line between water and sky.">Suspendue au-dessus d'un lac cristallin, parois de verre et bain à débordement&nbsp;: une cabine qui efface la frontière entre l'eau et le ciel.</p>
+    <div class="room-meta">
+      <a href="#book" class="btn btn-line" data-fr="Réserver l'Eau" data-en="Reserve Water">Réserver l'Eau <span class="ar">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FEU -->
+<section class="room flip">
+  <div class="room-media m-feu reveal-scale">
+    <video class="room-vid" muted loop playsinline webkit-playsinline preload="none" poster="assets/poster-feu.jpg" data-src="assets/201025-914542929_tiny.mp4"></video>
+    <div class="room-scrim"></div>
+    <svg class="emblem emblem-bg"><use href="#feu"/></svg><span class="mlabel" data-fr="Cabine Feu" data-en="Fire Cabin">Cabine Feu</span>
+  </div>
+  <div class="room-body reveal-left">
+    <div class="room-idx">02 — <span data-fr="FEU" data-en="FIRE">FEU</span></div>
+    <h2 class="room-name serif">Feu</h2>
+    <div class="room-el" data-fr="Chaleur · Intensité" data-en="Warmth · Intensity">Chaleur · Intensité</div>
+    <p class="room-desc lede" data-fr="Un foyer central suspendu, un sauna de cèdre et des bains nordiques fumants sous les étoiles. La chaleur primitive, réinventée." data-en="A suspended central hearth, a cedar sauna and steaming Nordic baths under the stars. Primal warmth, reimagined.">Un foyer central suspendu, un sauna de cèdre et des bains nordiques fumants sous les étoiles. La chaleur primitive, réinventée.</p>
+    <div class="room-meta">
+      <a href="#book" class="btn btn-line" data-fr="Réserver le Feu" data-en="Reserve Fire">Réserver le Feu <span class="ar">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- AIR -->
+<section class="room">
+  <div class="room-media m-air reveal-scale">
+    <video class="room-vid" muted loop playsinline webkit-playsinline preload="none" poster="assets/poster-air.jpg" data-src="assets/217947_tiny.mp4"></video>
+    <div class="room-scrim"></div>
+    <svg class="emblem emblem-bg"><use href="#air"/></svg><span class="mlabel" data-fr="Cabine Air" data-en="Air Cabin">Cabine Air</span>
+  </div>
+  <div class="room-body reveal-left">
+    <div class="room-idx">03 — <span data-fr="AIR" data-en="AIR">AIR</span></div>
+    <h2 class="room-name serif">Air</h2>
+    <div class="room-el" data-fr="Légèreté · Horizon" data-en="Lightness · Horizon">Légèreté · Horizon</div>
+    <p class="room-desc lede" data-fr="Perchée au sommet de la falaise, une vue panoramique à 270° sur la canopée. Dormir au niveau des cimes, au rythme du vent." data-en="Perched atop the cliff, a 270° panorama over the canopy. Sleep at treetop level, to the rhythm of the wind.">Perchée au sommet de la falaise, une vue panoramique à 270° sur la canopée. Dormir au niveau des cimes, au rythme du vent.</p>
+    <div class="room-meta">
+      <a href="#book" class="btn btn-line" data-fr="Réserver l'Air" data-en="Reserve Air">Réserver l'Air <span class="ar">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- TERRE -->
+<section class="room flip">
+  <div class="room-media m-terre reveal-scale">
+    <video class="room-vid" muted loop playsinline webkit-playsinline preload="none" poster="assets/poster-terre.jpg" data-src="assets/229521_tiny.mp4"></video>
+    <div class="room-scrim"></div>
+    <svg class="emblem emblem-bg"><use href="#terre"/></svg><span class="mlabel" data-fr="Cabine Terre" data-en="Earth Cabin">Cabine Terre</span>
+  </div>
+  <div class="room-body reveal-left">
+    <div class="room-idx">04 — <span data-fr="TERRE" data-en="EARTH">TERRE</span></div>
+    <h2 class="room-name serif">Terre</h2>
+    <div class="room-el" data-fr="Ancrage · Intimité" data-en="Grounding · Intimacy">Ancrage · Intimité</div>
+    <p class="room-desc lede" data-fr="Encastrée dans la roche, façonnée de bois brut et de pierre. L'intimité absolue d'un refuge qui semble né de la montagne." data-en="Set into the rock, crafted from raw wood and stone. The absolute intimacy of a refuge that seems born of the mountain.">Encastrée dans la roche, façonnée de bois brut et de pierre. L'intimité absolue d'un refuge qui semble né de la montagne.</p>
+    <div class="room-meta">
+      <a href="#book" class="btn btn-line" data-fr="Réserver la Terre" data-en="Reserve Earth">Réserver la Terre <span class="ar">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- experiences -->
+<section id="xp">
+  <div class="wrap">
+    <div class="xp-head reveal">
+      <div><span class="eyebrow" data-fr="Sur le domaine" data-en="On the estate">Sur le domaine</span>
+      <h2 class="serif" data-fr="Le temps, autrement" data-en="Time, differently">Le temps, autrement</h2></div>
+      <p class="lede" style="max-width:340px" data-fr="Chaque séjour s'accompagne d'expériences pensées pour réveiller les sens." data-en="Every stay comes with experiences designed to awaken the senses.">Chaque séjour s'accompagne d'expériences pensées pour réveiller les sens.</p>
+    </div>
+    <div class="xp-grid">
+      <div class="xp reveal-scale"><svg class="emblem"><use href="#feu"/></svg><h3 class="serif" data-fr="Sauna nordique" data-en="Nordic sauna">Sauna nordique</h3><p data-fr="Cycle chaud-froid face à la forêt, suivi d'un repos au coin du feu." data-en="Hot-cold cycle facing the forest, then rest by the fire.">Cycle chaud-froid face à la forêt, suivi d'un repos au coin du feu.</p></div>
+      <div class="xp reveal-scale"><svg class="emblem"><use href="#air"/></svg><h3 class="serif" data-fr="Observation des étoiles" data-en="Stargazing">Observation des étoiles</h3><p data-fr="Ciel sans pollution lumineuse et télescope guidé par un naturaliste." data-en="Light-pollution-free sky and a telescope guided by a naturalist.">Ciel sans pollution lumineuse et télescope guidé par un naturaliste.</p></div>
+      <div class="xp reveal-scale"><svg class="emblem"><use href="#terre"/></svg><h3 class="serif" data-fr="Table du terroir" data-en="Local table">Table du terroir</h3><p data-fr="Menu privé du chef, produits du Québec livrés directement à la cabine." data-en="Private chef's menu, Québec produce delivered to your cabin.">Menu privé du chef, produits du Québec livrés directement à la cabine.</p></div>
+      <div class="xp reveal-scale"><svg class="emblem"><use href="#eau"/></svg><h3 class="serif" data-fr="Bain flottant" data-en="Floating bath">Bain flottant</h3><p data-fr="Bains nordiques au bord du lac, du lever du jour à la nuit étoilée." data-en="Nordic baths at the lake's edge, from dawn to starlit night.">Bains nordiques au bord du lac, du lever du jour à la nuit étoilée.</p></div>
+      <div class="xp reveal-scale"><svg class="emblem"><use href="#terre"/></svg><h3 class="serif" data-fr="Raquette &amp; sentiers" data-en="Snowshoe &amp; trails">Raquette &amp; sentiers</h3><p data-fr="Réseau privé de sentiers à travers 100 hectares de forêt vierge." data-en="Private trail network across 100 hectares of untouched forest.">Réseau privé de sentiers à travers 100 hectares de forêt vierge.</p></div>
+      <div class="xp reveal-scale"><svg class="emblem"><use href="#mark"/></svg><h3 class="serif" data-fr="Guide naturaliste" data-en="Naturalist guide">Guide naturaliste</h3><p data-fr="Sorties privées à la rencontre de la faune et de la flore du domaine." data-en="Private outings to discover the estate's wildlife and flora.">Sorties privées à la rencontre de la faune et de la flore du domaine.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- reservation -->
+<section id="book" class="dark-tile">
+  <div class="book-in reveal">
+    <span class="eyebrow" data-fr="Pré-réservation" data-en="Pre-booking">Pré-réservation</span>
+    <h2 class="serif" data-fr="Réservez votre élément" data-en="Reserve your element">Réservez votre élément</h2>
+    <p class="lede" style="max-width:480px;margin:0 auto" data-fr="Les quatre cabines ouvrent en juin 2026. Réservez maintenant et profitez du tarif d'ouverture — avant tout le monde." data-en="All four cabins open June 2026. Book now for the opening rate — before anyone else.">Les quatre cabines ouvrent en juin 2026. Réservez maintenant et profitez du tarif d'ouverture — avant tout le monde.</p>
+    <form class="form" onsubmit="return false">
+      <div class="fg"><label data-fr="Cabine" data-en="Cabin">Cabine</label>
+        <select><option data-fr="Choisir…" data-en="Choose…">Choisir…</option><option>Eau</option><option>Feu</option><option>Air</option><option>Terre</option></select></div>
+      <div class="fg"><label data-fr="Arrivée" data-en="Check-in">Arrivée</label><input type="text" placeholder="JJ / MM / AAAA"/></div>
+      <div class="fg"><label data-fr="Départ" data-en="Check-out">Départ</label><input type="text" placeholder="JJ / MM / AAAA"/></div>
+      <button class="btn btn-solid" type="submit" data-fr="Vérifier" data-en="Check">Vérifier</button>
+    </form>
+    <p class="booknote" data-fr="✦ Annulation gratuite jusqu'à 30 jours avant l'arrivée." data-en="✦ Free cancellation up to 30 days before arrival.">✦ Annulation gratuite jusqu'à 30 jours avant l'arrivée.</p>
+  </div>
+</section>
+
+<!-- footer -->
+<footer class="dark-tile">
+  <div class="wrap">
+    <div class="ftop">
+      <div class="fbrand">
+        <a href="#hero" class="brand fbrand-link" aria-label="Elementa"><span class="logo-mark" style="width:168px;aspect-ratio:1307/1000"></span></a>
+        <p data-fr="L'essence de la nature, réinventée. Charlevoix, Québec." data-en="The essence of nature, reinvented. Charlevoix, Québec.">L'essence de la nature, réinventée. Charlevoix, Québec.</p>
+      </div>
+      <div class="fcols">
+        <div class="fcol"><h4 data-fr="Explorer" data-en="Explore">Explorer</h4><ul>
+          <li><a href="#manifesto" data-fr="Le concept" data-en="The concept">Le concept</a></li>
+          <li><a href="#eau-room" data-fr="Les éléments" data-en="The elements">Les éléments</a></li>
+          <li><a href="#xp" data-fr="Expériences" data-en="Experiences">Expériences</a></li>
+          <li><a href="#book" data-fr="Réserver" data-en="Reserve">Réserver</a></li>
+        </ul></div>
+        <div class="fcol"><h4 data-fr="Contact" data-en="Contact">Contact</h4><ul>
+          <li><a href="mailto:info@elementa.ca">info@elementa.ca</a></li>
+          <li><a href="#">Instagram</a></li><li><a href="#" data-fr="Presse" data-en="Press">Presse</a></li>
+        </ul></div>
+        <div class="fcol"><h4 data-fr="Légal" data-en="Legal">Légal</h4><ul>
+          <li><a href="#" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a></li>
+          <li><a href="#" data-fr="Conditions" data-en="Terms">Conditions</a></li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="fbot">
+      <p data-fr="© 2026 Elementa Experiences. Tous droits réservés." data-en="© 2026 Elementa Experiences. All rights reserved.">© 2026 Elementa Experiences. Tous droits réservés.</p>
+      <div class="fsoc"><a href="#">Instagram</a><a href="#">TikTok</a></div>
+    </div>
+  </div>
+</footer>
+
+<a href="#book" class="btn btn-solid sticky-book" id="stickyBook" data-fr="Réserver" data-en="Book">Réserver</a>
+
+<script>
+(function(){
+  // loader
+  addEventListener('load', ()=>setTimeout(()=>{const l=document.getElementById('loader');l.style.opacity='0';setTimeout(()=>l.style.display='none',650);},650));
+  setTimeout(()=>{const l=document.getElementById('loader');if(l&&l.style.opacity!=='0'){l.style.opacity='0';setTimeout(()=>l.style.display='none',650);}},2500);
+
+  // hero entrance
+  const seq=['.hero-in .eyebrow','.hero-title span','.hero-sub','.scarcity','.hero-cta','.scrollhint'];
+  let d=300;
+  document.querySelectorAll('.hero-title span').forEach((s,i)=>{s.style.transition='opacity .9s var(--ease),transform .9s var(--ease)';});
+  function show(sel,delay){document.querySelectorAll(sel).forEach((el,i)=>{el.style.transition=el.style.transition||'opacity .9s var(--ease),transform .9s var(--ease)';setTimeout(()=>{el.style.opacity='1';el.style.transform='none';},delay+i*90);});}
+  seq.forEach(sel=>{show(sel,d);d+=160;});
+
+  // reveal on scroll
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.18});
+  document.querySelectorAll('.reveal,.reveal-scale,.reveal-left').forEach(el=>io.observe(el));
+
+  // count-up
+  const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target.querySelector('[data-count]');if(el&&!el.dataset.done){el.dataset.done=1;const t=+el.dataset.count,suf=el.dataset.suffix||'';let s=null;const dur=1100;requestAnimationFrame(function step(ts){if(!s)s=ts;const p=Math.min((ts-s)/dur,1);el.textContent=Math.round(p*t)+suf;if(p<1)requestAnimationFrame(step);});}cio.unobserve(e.target);});},{threshold:.5});
+  document.querySelectorAll('#proof .stat').forEach(el=>cio.observe(el));
+
+  // nav + sticky
+  const nav=document.getElementById('nav'),sticky=document.getElementById('stickyBook');
+  addEventListener('scroll',()=>{const y=scrollY;nav.classList.toggle('scrolled',y>60);sticky.classList.toggle('show',y>700);},{passive:true});
+
+  // ── cinematic hero scroll-scrub (Apple-style) ──
+  (function(){
+    const stage=document.getElementById('hero');
+    const vid=document.getElementById('heroVideo');
+    if(!stage||!vid) return;
+    const heroIn=stage.querySelector('.hero-in');
+    const hint=stage.querySelector('.scrollhint');
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let dur=0, target=0, shown=0, primed=false, queued=false;
+
+    function prime(){
+      if(primed) return; primed=true;
+      const p=vid.play();
+      if(p&&p.then){ p.then(()=>{vid.pause();vid.currentTime=0;}).catch(()=>{}); }
+      else { try{vid.pause();}catch(e){} }
+    }
+    vid.addEventListener('loadedmetadata',()=>{ dur=vid.duration||5; if(!reduce){ prime(); queue(); } });
+    ['wheel','touchstart','pointerdown','keydown'].forEach(ev=>addEventListener(ev,prime,{once:true,passive:true}));
+
+    function progress(){
+      const total=stage.offsetHeight-innerHeight;
+      const y=Math.min(Math.max(-stage.getBoundingClientRect().top,0),total);
+      return total>0 ? y/total : 0;
+    }
+    function tick(){
+      queued=false;
+      const p=progress();
+      if(!reduce && dur){
+        target=p*(dur-0.05);
+        shown+=(target-shown)*0.16;
+        if(Math.abs(target-shown)<0.002) shown=target;
+        if(vid.readyState>=2 && Math.abs(vid.currentTime-shown)>0.01){
+          try{ vid.currentTime=shown; }catch(e){}
+        }
+      }
+      // fade headline out as the footage takes over
+      const f=Math.min(Math.max((p-0.42)/0.4,0),1);
+      heroIn.style.opacity=String(1-f);
+      heroIn.style.transform='translateY('+(-f*42)+'px)';
+      if(hint && p>0.02) hint.style.opacity=String(Math.max(0,1-(p-0.02)*12));
+      if(!reduce && Math.abs(target-shown)>0.002) queue();
+    }
+    function queue(){ if(!queued){ queued=true; requestAnimationFrame(tick); } }
+    addEventListener('scroll',queue,{passive:true});
+    addEventListener('resize',queue);
+    queue();
+  })();
+
+  // ── element room videos: rect-driven, self-healing load + play ──
+  (function(){
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const vids=[].slice.call(document.querySelectorAll('.room-vid'));
+    if(!vids.length) return;
+    function load(v){
+      if(v.dataset.loaded||!v.dataset.src) return;
+      v.dataset.loaded='1';
+      v.muted=true;                 // Safari: muted must be set before src for autoplay
+      v.setAttribute('muted','');
+      v.src=v.dataset.src;          // set src on the <video> directly (Safari ignores late <source> src)
+      v.load();
+    }
+    function sync(){
+      const vh=innerHeight;
+      vids.forEach(v=>{
+        const r=v.getBoundingClientRect();
+        const near=r.bottom>-300 && r.top<vh+300;   // play zone (incl. just off-screen)
+        const far =r.bottom<-700 || r.top>vh+700;   // pause zone (well away) — hysteresis
+        if(near) load(v);
+        if(reduce) return;
+        if(near){
+          v.muted=true;
+          if(v.paused && v.readyState>=2){ const p=v.play(); if(p&&p.catch) p.catch(()=>{}); }
+        } else if(far && !v.paused){ v.pause(); }
+      });
+    }
+    let q=false;
+    function queue(){ if(!q){ q=true; requestAnimationFrame(()=>{ q=false; sync(); }); } }
+    addEventListener('scroll',queue,{passive:true});
+    addEventListener('resize',queue);
+    vids.forEach(v=>{ v.addEventListener('canplay',sync); v.addEventListener('loadeddata',sync); });
+    // safety net: a clip that buffers after the user stops scrolling still starts
+    setInterval(sync,600);
+    sync();
+  })();
+
+  // language
+  let lang='fr';
+  document.getElementById('lang').addEventListener('click',function(){
+    lang=lang==='fr'?'en':'fr';this.textContent=lang==='fr'?'EN':'FR';
+    document.querySelectorAll('[data-fr]').forEach(el=>{const v=el.getAttribute('data-'+lang);if(v!=null)el.textContent=v;});
+    document.documentElement.lang=lang;
+  });
+
+  // mobile menu (simple): toggle nav links into view
+  document.getElementById('burger').addEventListener('click',()=>{
+    const open=nav.classList.toggle('open');
+    let m=document.getElementById('mmenu');
+    if(open&&!m){m=document.createElement('div');m.id='mmenu';
+      m.style.cssText='position:fixed;inset:0;top:0;z-index:480;background:rgba(10,10,9,.97);backdrop-filter:blur(10px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px';
+      ['#manifesto|Le concept','#eau-room|Les éléments','#xp|Expériences','#book|Réserver'].forEach(s=>{const[h,t]=s.split('|');const a=document.createElement('a');a.href=h;a.textContent=t;a.style.cssText="font-family:'Cormorant Garamond',serif;font-size:2rem;color:#efe9df;text-decoration:none";a.onclick=()=>{m.remove();nav.classList.remove('open');};m.appendChild(a);});
+      document.body.appendChild(m);
+    } else if(m){m.remove();}
+  });
+})();
+</script>
+</body>
+</html>
